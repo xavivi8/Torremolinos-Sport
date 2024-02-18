@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Lista de Equipos - {{ block.super }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Lista de Equipos</h1>
+    <ul>
+        {% for equipo in equipos %}
+            <li>
+                {{ equipo.nombre }} - {{ equipo.deporte }} - {{ equipo.contacto }}
+                <a href="{% url 'equipo-detail' equipo.pk %}">Detalle</a> |
+                <a href="{% url 'equipo-update' equipo.pk %}">Modificar</a> |
+                <a href="{% url 'equipo-delete' equipo.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'equipo-create' %}">Añadir Equipo</a>
+</div>
+{% endblock %}

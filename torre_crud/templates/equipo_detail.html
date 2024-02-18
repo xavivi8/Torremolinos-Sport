@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Detalle del Equipo - {{ equipo.nombre }} - {{ block.super }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Detalle del Equipo - {{ equipo.nombre }}</h1>
+    <p>Deporte: {{ equipo.deporte }}</p>
+    <p>Contacto: {{ equipo.contacto }}</p>
+    <h2>Jugadores</h2>
+    <ul>
+        {% for jugador in equipo.jugador_set.all|dictsort:"dorsal" %}
+            <li>{{ jugador.dorsal }} - {{ jugador.nombre }} {{ jugador.apellido1 }} {% if jugador.apellido2 %} {{ jugador.apellido2 }} {% endif %}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'jugador-create' equipo.pk %}">Añadir Jugador</a>
+</div>
+{% endblock %}
