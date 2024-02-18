@@ -1,17 +1,9 @@
+from datetime import datetime
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.views import generic
 from . import models
-from datetime import datetime
-""" Imports de formularios """
-from .forms import DeporteForm
-from .forms import InstalacionForm
-from .forms import EquipoForm
-from .forms import JugadorForm
-from .forms import PartidoForm
-
-
-# Create your views here.
+from .forms import DeporteForm, InstalacionForm, EquipoForm, JugadorForm, PartidoForm
 
 class Inicio(generic.ListView):
     template_name = 'inicio.html'  
@@ -47,13 +39,13 @@ class DeportesCreateView(generic.CreateView):
 class DeportesDeleteView(generic.DeleteView):
     model = models.Deporte
     template_name = 'deporte_confirm_delete.html'
-    success_url = reverse_lazy('deportes-list')
+    success_url = reverse_lazy('torre_crud:deportes-list')
 
 class DeportesUpdateView(generic.UpdateView):
     model = models.Deporte
     form_class = DeporteForm
     template_name = 'deporte_form.html'
-    success_url = reverse_lazy('deportes-list')
+    success_url = reverse_lazy('torre_crud:deportes-list')
 
 """ Instalaciones """
 
@@ -68,20 +60,20 @@ class InstalacionesCreateView(generic.CreateView):
     model = models.Instalacion
     form_class = InstalacionForm
     template_name = 'instalacion_form.html'
-    success_url = reverse_lazy('instalaciones-list')
+    success_url = reverse_lazy('torre_crud:instalaciones-list')
 
 class InstalacionesDeleteView(generic.DeleteView):
     model = models.Instalacion
     template_name = 'instalacion_confirm_delete.html'
-    success_url = reverse_lazy('instalaciones-list')
+    success_url = reverse_lazy('torre_crud:instalaciones-list')
 
 class InstalacionesUpdateView(generic.UpdateView):
     model = models.Instalacion
     form_class = InstalacionForm
     template_name = 'instalacion_form.html'
-    success_url = reverse_lazy('instalaciones-list')
+    success_url = reverse_lazy('torre_crud:instalaciones-list')
 
-""" Equipos """
+""" Equipo """
 
 class EquiposListView(generic.ListView):
     template_name = 'equipos_list.html'
@@ -94,24 +86,24 @@ class EquiposCreateView(generic.CreateView):
     model = models.Equipo
     form_class = EquipoForm
     template_name = 'equipo_form.html'
-    success_url = reverse_lazy('equipos-list')
+    success_url = reverse_lazy('torre_crud:equipos-list')
 
 class EquiposDeleteView(generic.DeleteView):
     model = models.Equipo
     template_name = 'equipo_confirm_delete.html'
-    success_url = reverse_lazy('equipos-list')
+    success_url = reverse_lazy('torre_crud:equipos-list')
 
 class EquiposUpdateView(generic.UpdateView):
     model = models.Equipo
     form_class = EquipoForm
     template_name = 'equipo_form.html'
-    success_url = reverse_lazy('equipos-list')
+    success_url = reverse_lazy('torre_crud:equipos-list')
 
 class EquipoDetailView(generic.DetailView):
     model = models.Equipo
     template_name = 'equipo_detail.html'
 
-""" Jugadores """
+""" Jugador """
 
 class JugadorListView(generic.ListView):
     model = models.Jugador
@@ -134,7 +126,7 @@ class JugadorDetailView(generic.DetailView):
 
 class JugadorDeleteView(generic.DeleteView):
     model = models.Jugador
-    success_url = '/jugadores/'  
+    success_url = reverse_lazy('torre_crud:jugadores-list')  
     template_name = 'jugador_confirm_delete.html'
 
 """ Partidos """
@@ -161,5 +153,5 @@ class PartidoDetailView(generic.DetailView):
 
 class PartidoDeleteView(generic.DeleteView):
     model = models.Partido
-    success_url = '/partidos/'
+    success_url = reverse_lazy('torre_crud:partidos-list')
     template_name = 'partido_confirm_delete.html'
