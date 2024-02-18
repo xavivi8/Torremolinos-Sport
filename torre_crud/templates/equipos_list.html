@@ -8,7 +8,7 @@
     <ul>
         {% for equipo in equipos %}
             <li>
-                {{ equipo.nombre }} - {{ equipo.deporte }} - {{ equipo.contacto }}
+                {{ equipo.nombre }} - {{ equipo.id_deporte }} - {{ equipo.contacto }} 
                 <a href="{% url 'equipo-detail' equipo.pk %}">Detalle</a> |
                 <a href="{% url 'equipo-update' equipo.pk %}">Modificar</a> |
                 <a href="{% url 'equipo-delete' equipo.pk %}">Eliminar</a>

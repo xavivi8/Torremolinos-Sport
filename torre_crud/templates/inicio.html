@@ -2,37 +2,37 @@
 {% load static %}
 
 {% block head %}
-    <title>Página de Inicio - {{ block.super }}</title>
+    <title>Página de Inicio - {% block super %}{{ block.super }}{% endblock %}</title>
 {% endblock %}
 
 {% block cuerpo %}
-    <div class="container mt-5">
-        <h1>{{ titulo }}</h1>
-        
-        <!-- Menú -->
-        <nav class="nav">
-            {% for opcion in menu_opciones %}
-                <a class="nav-link" href="{% url 'torre_crud:'|add:opcion|lower|add:'-list' %}">{{ opcion|title }}</a>
-            {% endfor %}
-        </nav>
-        
-        <!-- Imagen de deporte -->
-        <img src="{% static imagen_deporte_url %}" alt="Imagen de Deporte" class="img-fluid my-4">
-        
-        <!-- Listado de últimos partidos jugados -->
-        <h2>Últimos partidos jugados</h2>
-        <ul>
-            {% for partido in ultimos_partidos %}
-                <li>{{ partido }}</li>
-            {% endfor %}
-        </ul>
-        
-        <!-- Listado de próximos partidos por jugar -->
-        <h2>Próximos partidos por jugar</h2>
-        <ul>
-            {% for partido in proximos_partidos %}
-                <li>{{ partido }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+<div class="container mt-5">
+    <h1>{{ titulo }}</h1>
+    
+    <!-- Menú -->
+    <nav class="nav">
+        {% for opcion in menu_opciones %}
+            <a class="nav-link" href="{% url 'torre_crud:'|add:opcion|lower|add:'-list' %}">{{ opcion|title }}</a>
+        {% endfor %}
+    </nav>
+    
+    <!-- Imagen de deporte -->
+    <img src="{% static imagen_deporte_url %}" alt="Imagen de Deporte" class="img-fluid my-4">
+    
+    <!-- Listado de últimos partidos jugados -->
+    <h2>Últimos partidos jugados</h2>
+    <ul>
+        {% for partido in ultimos_partidos %}
+            <li>{{ partido }}</li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Listado de próximos partidos por jugar -->
+    <h2>Próximos partidos por jugar</h2>
+    <ul>
+        {% for partido in proximos_partidos %}
+            <li>{{ partido }}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

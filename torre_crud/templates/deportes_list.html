@@ -5,10 +5,24 @@
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Lista de Deportes</h1>
-    <ul>
-        {% for deporte in deportes %}
-            <li>{{ deporte.nombre }}</li>
-        {% endfor %}
-    </ul>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deporte in deportes %}
+                    <tr>
+                        <td>{{ deporte.id_deporte }}</td>
+                        <td>{{ deporte.nombre }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
+
