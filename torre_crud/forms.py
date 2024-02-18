@@ -25,4 +25,8 @@ class PartidoForm(forms.ModelForm):
     class Meta:
         model = models.Partido
         exclude = ['id_partido']
+        widgets = {
+            'fecha_hora': forms.DateTimeInput(attrs={'class': 'datetime-input'}),
+            'observaciones': forms.Textarea(attrs={'rows': 4}),
+        }
 
