@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Detalle del Partido - {{ partido.local.nombre }} vs {{ partido.visitante.nombre }} - {{ block.super }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Detalle del Partido - {{ partido.local.nombre }} vs {{ partido.visitante.nombre }}</h1>
+    <p>Deporte: {{ partido.deporte }}</p>
+    <p>Fecha y Hora: {{ partido.fecha_hora }}</p>
+    <p>Instalación: {{ partido.instalacion }}</p>
+    <p>Puntos Local: {{ partido.puntos_local }}</p>
+    <p>Puntos Visitante: {{ partido.puntos_visitante }}</p>
+    <p>Observaciones: {{ partido.observaciones }}</p>
+</div>
+{% endblock %}
