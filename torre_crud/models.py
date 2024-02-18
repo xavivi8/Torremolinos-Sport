@@ -32,7 +32,7 @@ class Instalacion(models.Model):
 class Equipo(models.Model):
     id_equipo = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
-    deporte = models.ForeignKey(Deporte, on_delete=models.CASCADE)
+    id_deporte = models.ForeignKey(Deporte, on_delete=models.RESTRICT)
     equipacion_principal = models.CharField(max_length=100)
     equipacion_suplente = models.CharField(max_length=100)
     contacto = models.CharField(max_length=100)
@@ -52,7 +52,7 @@ class Jugador(models.Model):
     nombre = models.CharField(max_length=20)
     apellido1 = models.CharField(max_length=20)
     apellido2 = models.CharField(max_length=20, blank=True, null=True)
-    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    id_equipo = models.ForeignKey(Equipo, on_delete=models.RESTRICT)
     dorsal = models.IntegerField()
     fecha_nacimiento = models.DateField()
     altura = models.DecimalField(max_digits=3, decimal_places=2, validators=[MinValueValidator(0)])
@@ -70,13 +70,13 @@ class Jugador(models.Model):
 
 class Partido(models.Model):
     id_partido = models.AutoField(primary_key=True)
-    deporte = models.ForeignKey(Deporte, on_delete=models.CASCADE)
+    id_deporte = models.ForeignKey(Deporte, on_delete=models.RESTRICT)
     fecha_hora = models.DateTimeField()
-    instalacion = models.ForeignKey(Instalacion, on_delete=models.SET_NULL, blank=True, null=True)
-    local = models.ForeignKey(Equipo, related_name='local', on_delete=models.CASCADE)
-    visitante = models.ForeignKey(Equipo, related_name='visitante', on_delete=models.CASCADE)
-    puntos_local = models.PositiveIntegerField(default=0)
-    puntos_visitante = models.PositiveIntegerField(default=0)
+    id_instalacion = models.ForeignKey(Instalacion, on_delete=models.RESTRICT, null=True, blank=True)
+    id_local = models.ForeignKey(Equipo, related_name='local_partidos', on_delete=models.RESTRICT)
+    id_visitante = models.ForeignKey(Equipo, related_name='visitante_partidos', on_delete=models.RESTRICT)
+    puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    puntos_visitante = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     observaciones = models.CharField(max_length=200, blank=True)
 
     class Meta:
