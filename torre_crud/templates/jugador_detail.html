@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Detalle del Jugador - {{ jugador.nombre }} {{ jugador.apellido1 }} - {{ block.super }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Detalle del Jugador - {{ jugador.nombre }} {{ jugador.apellido1 }}</h1>
+    <p>Equipo: {{ jugador.equipo }}</p>
+    <p>Fecha de Nacimiento: {{ jugador.fecha_nacimiento }}</p>
+    <p>Altura: {{ jugador.altura }} m</p>
+    <p>Peso: {{ jugador.peso }} kg</p>
+    <p>Teléfono: {{ jugador.telefono }}</p>
+</div>
+{% endblock %}
