@@ -1,9 +1,9 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-
-# Create your models here.
+from django.utils import timezone
 
 class Deporte(models.Model):
+    id_deporte = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
 
     class Meta:
@@ -15,6 +15,7 @@ class Deporte(models.Model):
         return self.nombre
 
 class Instalacion(models.Model):
+    id_instalacion = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
     direccion = models.CharField(max_length=100)
     iluminacion = models.BooleanField(default=False)
@@ -29,6 +30,7 @@ class Instalacion(models.Model):
         return self.nombre
 
 class Equipo(models.Model):
+    id_equipo = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
     deporte = models.ForeignKey(Deporte, on_delete=models.CASCADE)
     equipacion_principal = models.CharField(max_length=100)
@@ -46,6 +48,7 @@ class Equipo(models.Model):
         return self.nombre
 
 class Jugador(models.Model):
+    id_jugador = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
     apellido1 = models.CharField(max_length=20)
     apellido2 = models.CharField(max_length=20, blank=True, null=True)
@@ -66,6 +69,7 @@ class Jugador(models.Model):
         return f"{self.nombre} {self.apellido1} ({self.equipo.nombre})"
 
 class Partido(models.Model):
+    id_partido = models.AutoField(primary_key=True)
     deporte = models.ForeignKey(Deporte, on_delete=models.CASCADE)
     fecha_hora = models.DateTimeField()
     instalacion = models.ForeignKey(Instalacion, on_delete=models.SET_NULL, blank=True, null=True)
@@ -82,4 +86,3 @@ class Partido(models.Model):
 
     def __str__(self):
         return f"{self.local.nombre} vs {self.visitante.nombre} - {self.fecha_hora}"
-
