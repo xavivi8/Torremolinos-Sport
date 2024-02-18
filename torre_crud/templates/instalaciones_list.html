@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Lista de Instalaciones - {{ block.super }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Lista de Instalaciones</h1>
+    <ul>
+        {% for instalacion in instalaciones %}
+            <li>{{ instalacion.nombre }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
