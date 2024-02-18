@@ -74,12 +74,26 @@ WSGI_APPLICATION = 'torre_sport_proyect.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+""" DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Torremolinos_Sport_BD',
+        'USER': 'Ricardo',
+        'PASSWORD': 'Ricardo0000@',
+        'HOST': '143.47.54.55',
+        'PORT': '3306', # Puerto predeterminado de MySQL
+    }
+} """
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'Torremolinos_Sport_BD',
+    'USER': 'root',
+    'PASSWORD': 'Javier0000@',
+    'HOST': 'localhost',
+    'PORT': '3306'
     }
-}
+} 
 
 
 # Password validation
