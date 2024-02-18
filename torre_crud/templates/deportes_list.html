@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Lista de Deportes - {{ block.super }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Lista de Deportes</h1>
+    <ul>
+        {% for deporte in deportes %}
+            <li>{{ deporte.nombre }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

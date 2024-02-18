@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Modificar Deporte - {{ block.super }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Modificar Deporte</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</div>
+{% endblock %}
