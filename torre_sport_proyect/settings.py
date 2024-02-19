@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'torre_sport_proyect.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'Torremolinos_Sport_BD',
+    'NAME': 'torremolinos',
     'USER': 'root',
     'PASSWORD': 'Javier0000@',
-    'HOST': 'localhost',
+    'HOST': '127.0.0.1',
     'PORT': '3306'
     }
 } 
