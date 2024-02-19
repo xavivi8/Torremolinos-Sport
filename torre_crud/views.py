@@ -24,7 +24,7 @@ class Inicio(generic.ListView):
 """ Deportes """
 
 class DeportesListView(generic.ListView):
-    template_name = 'deportes.html'
+    template_name = 'deportes_list.html'
     context_object_name = 'deportes'
 
     def get_queryset(self):
@@ -77,7 +77,7 @@ class InstalacionesUpdateView(generic.UpdateView):
 
 class EquiposListView(generic.ListView):
     template_name = 'equipos_list.html'
-    context_object_name = 'equipos'
+    context_object_name = 'equipos_list'
 
     def get_queryset(self):
         return models.Equipo.objects.all()
