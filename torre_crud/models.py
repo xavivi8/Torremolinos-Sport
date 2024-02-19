@@ -32,7 +32,7 @@ class Instalacion(models.Model):
 class Equipo(models.Model):
     id_equipo = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
-    id_deporte = models.ForeignKey(Deporte, on_delete=models.RESTRICT)
+    id_deporte = models.ForeignKey(Deporte, on_delete=models.RESTRICT, db_column = 'id_deporte', default = 0)
     equipacion_principal = models.CharField(max_length=100)
     equipacion_suplente = models.CharField(max_length=100)
     contacto = models.CharField(max_length=100)
@@ -74,7 +74,7 @@ class Jugador(models.Model):
    nombre = models.CharField(max_length=20)
    apellido1 = models.CharField(max_length=20)
    apellido2 = models.CharField(max_length=20, blank=True, null=True)
-   id_equipo = models.ForeignKey(Equipo, on_delete=models.RESTRICT)
+   id_equipo = models.ForeignKey(Equipo, on_delete=models.RESTRICT, db_column = 'id_equipo', default = 0)
    dorsal = models.IntegerField()
    fecha_nacimiento = models.DateField()
    altura = models.DecimalField(max_digits=3, decimal_places=2, validators=[MinValueValidator(0)])
@@ -93,11 +93,11 @@ class Jugador(models.Model):
  
 class Partido(models.Model):
     id_partido = models.AutoField(primary_key=True)
-    id_deporte = models.ForeignKey(Deporte, on_delete=models.RESTRICT)
+    id_deporte = models.ForeignKey(Deporte, on_delete=models.RESTRICT, db_column = 'id_deporte', default = 0)
     fecha_hora = models.DateTimeField()
-    id_instalacion = models.ForeignKey(Instalacion, on_delete=models.RESTRICT, null=True, blank=True)
-    id_local = models.ForeignKey(Equipo, related_name='local_partidos', on_delete=models.RESTRICT)
-    id_visitante = models.ForeignKey(Equipo, related_name='visitante_partidos', on_delete=models.RESTRICT)
+    id_instalacion = models.ForeignKey(Instalacion, on_delete=models.RESTRICT, null=True, blank=True, db_column = 'id_instalacion', default = 0)
+    id_local = models.ForeignKey(Equipo, related_name='local_partidos', on_delete=models.RESTRICT, db_column = 'id_local', default = 0)
+    id_visitante = models.ForeignKey(Equipo, related_name='visitante_partidos', on_delete=models.RESTRICT, db_column = 'id_visitante', default = 0)
     puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     puntos_visitante = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     observaciones = models.CharField(max_length=200, blank=True)
