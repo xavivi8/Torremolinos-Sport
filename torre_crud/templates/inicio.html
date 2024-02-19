@@ -17,13 +17,13 @@
     </nav>
     
     <!-- Imagen de deporte -->
-    <img src="{% static imagen_deporte_url %}" alt="Imagen de Deporte" class="img-fluid my-4">
+    <img src="{% static 'img/futbolImg.jpg' %}" alt="Imagen de Deporte" class="img-fluid my-4">
     
     <!-- Listado de últimos partidos jugados -->
     <h2>Últimos partidos jugados</h2>
     <ul>
         {% for partido in ultimos_partidos %}
-            <li>{{ partido }}</li>
+            <li>{{ partido.id_deporte }}</li>
         {% endfor %}
     </ul>
     
@@ -31,7 +31,7 @@
     <h2>Próximos partidos por jugar</h2>
     <ul>
         {% for partido in proximos_partidos %}
-            <li>{{ partido }}</li>
+            <li>{{ partido.id_partido }}</li>
         {% endfor %}
     </ul>
 </div>
