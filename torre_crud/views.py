@@ -10,7 +10,7 @@ class Inicio(generic.ListView):
     context_object_name = 'contexto'  
 
     def get_queryset(self):
-        return models.Partido.objects.none()  # Devuelve un QuerySet vacío
+        return models.Partido.objects.none()  
 
     def get_context_data(self, **kwargs):
         contexto = super().get_context_data(**kwargs)
