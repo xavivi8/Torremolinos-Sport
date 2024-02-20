@@ -74,6 +74,7 @@ WSGI_APPLICATION = 'torre_sport_proyect.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+""" Mi base de datos de oracle, recordar volver a mirar como conectarse """
 """ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
