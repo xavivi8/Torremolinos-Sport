@@ -62,6 +62,7 @@ python manage.py startapp nombre
   ```bash
   python manage.py migrate
   ```
+  4. Makemigrations ```python manage.py makemigrations```
 
 ### Crar usuario administrador
 
