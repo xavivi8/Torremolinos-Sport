@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}<title>Añadir Deporte - {{ block.super }}</title>{% endblock %}
+{% block title %}
+<title>Añadir Deporte - {{ block.super }}</title>
+{% endblock %}
 
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Añadir Deporte</h1>
-    <form method="post">
+    <form method="post" class="needs-validation" novalidate>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <div class="form-group">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+            <div class="invalid-feedback">
+                {{ form.nombre.errors }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
 {% endblock %}
