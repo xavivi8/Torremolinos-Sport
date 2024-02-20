@@ -33,7 +33,7 @@ class DeportesListView(generic.ListView):
 class DeportesCreateView(generic.CreateView):
     model = models.Deporte
     form_class = DeporteForm
-    template_name = 'deporte_form.html'
+    template_name = 'deporte_create.html'
     success_url = reverse_lazy('torre_crud:deportes-list') 
 
 class DeportesDeleteView(generic.DeleteView):
@@ -44,7 +44,7 @@ class DeportesDeleteView(generic.DeleteView):
 class DeportesUpdateView(generic.UpdateView):
     model = models.Deporte
     form_class = DeporteForm
-    template_name = 'deporte_form.html'
+    template_name = 'deporte_detail.html'
     success_url = reverse_lazy('torre_crud:deportes-list')
 
 """ Instalaciones """
@@ -59,7 +59,7 @@ class InstalacionesListView(generic.ListView):
 class InstalacionesCreateView(generic.CreateView):
     model = models.Instalacion
     form_class = InstalacionForm
-    template_name = 'instalacion_form.html'
+    template_name = 'instalacion_create.html'
     success_url = reverse_lazy('torre_crud:instalaciones-list')
 
 class InstalacionesDeleteView(generic.DeleteView):
@@ -70,7 +70,7 @@ class InstalacionesDeleteView(generic.DeleteView):
 class InstalacionesUpdateView(generic.UpdateView):
     model = models.Instalacion
     form_class = InstalacionForm
-    template_name = 'instalacion_form.html'
+    template_name = 'instalacion_detail.html'
     success_url = reverse_lazy('torre_crud:instalaciones-list')
 
 """ Equipo """
@@ -85,7 +85,7 @@ class EquiposListView(generic.ListView):
 class EquiposCreateView(generic.CreateView):
     model = models.Equipo
     form_class = EquipoForm
-    template_name = 'equipo_form.html'
+    template_name = 'equipo_create.html'
     success_url = reverse_lazy('torre_crud:equipos-list')
 
 class EquiposDeleteView(generic.DeleteView):
@@ -96,7 +96,7 @@ class EquiposDeleteView(generic.DeleteView):
 class EquiposUpdateView(generic.UpdateView):
     model = models.Equipo
     form_class = EquipoForm
-    template_name = 'equipo_form.html'
+    template_name = 'equipo_update.html'
     success_url = reverse_lazy('torre_crud:equipos-list')
 
 class EquipoDetailView(generic.DetailView):
