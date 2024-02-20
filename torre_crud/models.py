@@ -47,28 +47,6 @@ class Equipo(models.Model):
     def __str__(self):
         return self.nombre
 
-""" class Jugador(models.Model):
-    id_jugador = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=20)
-    apellido1 = models.CharField(max_length=20)
-    apellido2 = models.CharField(max_length=20, blank=True, null=True)
-    id_equipo = models.ForeignKey(Equipo, on_delete=models.RESTRICT)
-    dorsal = models.IntegerField()
-    fecha_nacimiento = models.DateField()
-    altura = models.DecimalField(max_digits=3, decimal_places=2, validators=[MinValueValidator(0)])
-    peso = models.IntegerField(validators=[MinValueValidator(0)])
-    telefono = models.CharField(max_length=15)
-
-    class Meta:
-        verbose_name = "Jugador"
-        verbose_name_plural = "Jugadores"
-        db_table = "jugadores"
-        unique_together = ('equipo', 'dorsal')
-
-    def __str__(self):
-        return f"{self.nombre} {self.apellido1} ({self.equipo.nombre})"
- """
- 
 class Jugador(models.Model):
    id_jugador = models.AutoField(primary_key=True)
    nombre = models.CharField(max_length=20)
