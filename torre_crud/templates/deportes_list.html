@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %}<title>Lista de Deportes - {{ block.super }}</title>{% endblock %}
+{% block title %}
+<title>Lista de Deportes - {{ block.super }}</title>
+{% endblock %}
 
 {% block cuerpo %}
 <div class="container mt-5">
@@ -11,6 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Acciones</th> <!-- Nueva columna para acciones -->
                 </tr>
             </thead>
             <tbody>
@@ -18,11 +21,18 @@
                     <tr>
                         <td>{{ deporte.id_deporte }}</td>
                         <td>{{ deporte.nombre }}</td>
+                        <td>
+                            <a href="{% url 'torre_crud:deporte-update' deporte.id_deporte %}" class="btn btn-primary">Editar</a>
+                            <form action="{% url 'torre_crud:deporte-delete' deporte.id_deporte %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    <a href="{% url 'torre_crud:deportes-create' %}" class="btn btn-success">Crear Deporte</a> <!-- Botón para crear un nuevo deporte -->
 </div>
 {% endblock %}
-
