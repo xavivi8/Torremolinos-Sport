@@ -33,18 +33,18 @@ class DeportesListView(generic.ListView):
 class DeportesCreateView(generic.CreateView):
     model = models.Deporte
     form_class = DeporteForm
-    template_name = 'deporte_create.html'
+    template_name = 'deportes_create.html'
     success_url = reverse_lazy('torre_crud:deportes-list') 
 
 class DeportesDeleteView(generic.DeleteView):
     model = models.Deporte
-    template_name = 'deporte_confirm_delete.html'
+    template_name = 'deportes_confirm_delete.html'
     success_url = reverse_lazy('torre_crud:deportes-list')
 
 class DeportesUpdateView(generic.UpdateView):
     model = models.Deporte
     form_class = DeporteForm
-    template_name = 'deporte_detail.html'
+    template_name = 'deportes_detail.html'
     success_url = reverse_lazy('torre_crud:deportes-list')
 
 """ Instalaciones """
