@@ -5,16 +5,32 @@
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Lista de Equipos</h1>
-    <ul>
-        {% for equipo in equipos %}
-            <li>
-                {{ equipo.nombre }} - {{ equipo.id_deporte }} - {{ equipo.contacto }} 
-                <a href="{% url 'equipo-detail' equipo.pk %}">Detalle</a> |
-                <a href="{% url 'equipo-update' equipo.pk %}">Modificar</a> |
-                <a href="{% url 'equipo-delete' equipo.pk %}">Eliminar</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'torre_crud:equipos-create' %}">Añadir Equipo</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Deporte</th>
+                <th>Contacto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for equipo in equipos_list %}
+                <tr>
+                    <td>{{ equipo.nombre }}</td>
+                    <td>{{ equipo.id_deporte.nombre }}</td>
+                    <td>{{ equipo.contacto }}</td>
+                    <td>
+                        <a href="{% url 'torre_crud:equipo-detail' equipo.pk %}" class="btn btn-info btn-sm">Detalle</a>
+                        <a href="{% url 'torre_crud:equipos-update' equipo.pk %}" class="btn btn-warning btn-sm">Modificar</a>
+                        <a href="{% url 'torre_crud:equipos-delete' equipo.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                    {% empty %}
+                        <td>No hay datos</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'torre_crud:equipos-create' %}" class="btn btn-success">Añadir Equipo</a>
 </div>
 {% endblock %}
