@@ -5,16 +5,32 @@
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Lista de Jugadores</h1>
-    <ul>
-        {% for jugador in jugadores %}
-            <li>
-                {{ jugador.nombre }} {{ jugador.apellido1 }} {% if jugador.apellido2 %} {{ jugador.apellido2 }} {% endif %} - {{ jugador.equipo }} - {{ jugador.telefono }}
-                <a href="{% url 'jugador-detail' jugador.pk %}">Detalle</a> |
-                <a href="{% url 'jugador-update' jugador.pk %}">Modificar</a> |
-                <a href="{% url 'jugador-delete' jugador.pk %}">Eliminar</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'jugador-create' %}">Añadir Jugador</a>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Equipo</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jugador in jugadores %}
+                <tr>
+                    <td>{{ jugador.nombre }}</td>
+                    <td>{{ jugador.apellido1 }} {% if jugador.apellido2 %}{{ jugador.apellido2 }}{% endif %}</td>
+                    <td>{{ jugador.equipo.nombre }}</td> <!-- Asumiendo que tienes un campo "equipo" en tu modelo Jugadores que hace referencia al equipo al que pertenece -->
+                    <td>{{ jugador.telefono }}</td>
+                    <td>
+                        <a href="{% url 'torre_crud:jugador-detail' jugador.pk %}" class="btn btn-info btn-sm">Detalle</a>
+                        <a href="{% url 'torre_crud:jugadores-update' jugador.pk %}" class="btn btn-warning btn-sm">Modificar</a>
+                        <a href="{% url 'torre_crud:jugadores-delete' jugador.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'torre_crud:jugadores-create' %}" class="btn btn-primary">Añadir Jugador</a>
 </div>
 {% endblock %}
