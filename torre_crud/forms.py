@@ -3,27 +3,27 @@ from . import models
 
 class DeporteForm(forms.ModelForm):
     class Meta:
-        model = models.Deporte
+        model = models.Deportes
         exclude = ['id_deporte']
 
 class InstalacionForm(forms.ModelForm):
     class Meta:
-        model = models.Instalacion
+        model = models.Instalaciones
         exclude = ['id_instalacion']
 
 class EquipoForm(forms.ModelForm):
     class Meta:
-        model = models.Equipo
+        model = models.Equipos
         exclude = ['id_equipo']
 
 class JugadorForm(forms.ModelForm):
     class Meta:
-        model = models.Jugador
+        model = models.Jugadores
         exclude = ['id_jugador']
 
 class PartidoForm(forms.ModelForm):
     class Meta:
-        model = models.Partido
+        model = models.Partidos
         exclude = ['id_partido']
         widgets = {
             'fecha_hora': forms.DateTimeInput(attrs={'class': 'datetime-input'}),
