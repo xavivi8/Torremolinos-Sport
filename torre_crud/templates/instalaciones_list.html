@@ -5,10 +5,41 @@
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Lista de Instalaciones</h1>
-    <ul>
-        {% for instalacion in instalaciones %}
-            <li>{{ instalacion.nombre }}</li>
-        {% endfor %}
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Iluminación</th>
+                <th>Cubierta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for instalacion in instalaciones %}
+            <tr>
+                <td>{{ instalacion.id_instalacion }}</td>
+                <td>{{ instalacion.nombre }}</td>
+                <td>{{ instalacion.direccion }}</td>
+                <td>{{ instalacion.iluminacion|yesno:"Sí,No" }}</td>
+                <td>{{ instalacion.cubierta|yesno:"Sí,No" }}</td>
+                <td>
+                    <!-- Botón para editar la instalación -->
+                    <a href="{% url 'torre_crud:instalaciones-update' instalacion.id_instalacion %}" class="btn btn-primary">Editar</a>
+                    <!-- Botón para borrar la instalación -->
+                    <form action="{% url 'torre_crud:instalaciones-delete' instalacion.id_instalacion %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <input type="submit" value="Borrar" class="btn btn-danger">
+                    </form>
+                </td>
+                {% empty %}
+                <td>No hay datos</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- Botón para crear una nueva instalación -->
+    <a href="{% url 'torre_crud:instalaciones-create' %}" class="btn btn-success">Crear Nueva Instalación</a>
 </div>
 {% endblock %}
