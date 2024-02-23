@@ -22,12 +22,14 @@
                         <td>{{ deporte.id_deporte }}</td>
                         <td>{{ deporte.nombre }}</td>
                         <td>
-                            <a href="{% url 'torre_crud:deporte-update' deporte.id_deporte %}" class="btn btn-primary">Editar</a>
-                            <form action="{% url 'torre_crud:deporte-delete' deporte.id_deporte %}" method="post" style="display: inline;">
+                            <a href="{% url 'torre_crud:deportes-update' deporte.id_deporte %}" class="btn btn-primary">Editar</a>
+                            <form action="{% url 'torre_crud:deportes-delete' deporte.id_deporte %}" method="post" style="display: inline;">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
                         </td>
+                        {% empty %}
+                        <td>No hay datos</td>
                     </tr>
                 {% endfor %}
             </tbody>
