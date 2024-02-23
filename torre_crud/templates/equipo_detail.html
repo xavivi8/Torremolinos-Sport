@@ -1,18 +1,49 @@
 {% extends 'base.html' %}
 
-{% block title %}<title>Detalle del Equipo - {{ equipo.nombre }} - {{ block.super }}</title>{% endblock %}
+{% block title %}<title>Detalle del Equipo - {{ equipo.nombre }}</title>{% endblock %}
 
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Detalle del Equipo - {{ equipo.nombre }}</h1>
-    <p>Deporte: {{ equipo.id_deporte }}</p>
-    <p>Contacto: {{ equipo.contacto }}</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Deporte</th>
+                <th>Contacto</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ equipo.id_deporte.nombre }}</td>
+                <td>{{ equipo.contacto }}</td>
+                <td>{{ equipo.telefono }}</td>
+                <td>{{ equipo.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
     <h2>Jugadores</h2>
-    <ul>
-        {% for jugador in equipo.jugador_set.all|dictsort:"dorsal" %}
-            <li>{{ jugador.dorsal }} - {{ jugador.nombre }} {{ jugador.apellido1 }} {% if jugador.apellido2 %} {{ jugador.apellido2 }} {% endif %}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'jugadores-create' equipo.pk %}">Añadir Jugador</a> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dorsal</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jugador in jugadores  %}
+                <tr>
+                    <td>{{ jugador.dorsal }}</td>
+                    <td>{{ jugador.nombre }}</td>
+                    <td>{{ jugador.apellido1 }} {{ jugador.apellido2 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'torre_crud:equipo-jugador-create' equipo.pk %}" class="btn btn-primary">Añadir Nuevo Jugador</a>
 </div>
 {% endblock %}
