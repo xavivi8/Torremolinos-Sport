@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Añadir Nuevo Jugador al Equipo - {{ equipo }}</title>{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-5">
+    <h1>Añadir Nuevo Jugador al Equipo - {{ equipo }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+{% endblock %}
