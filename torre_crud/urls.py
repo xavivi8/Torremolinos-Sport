@@ -24,6 +24,7 @@ urlpatterns = [
     path('equipos/<int:pk>/editar/', views.EquiposUpdateView.as_view(), name='equipos-update'),
     path('equipos/<int:pk>/eliminar/', views.EquiposDeleteView.as_view(), name='equipos-delete'),
     path('equipos/<int:pk>/', views.EquipoDetailView.as_view(), name='equipo-detail'),
+    path('equipos/<int:pk>/jugadores', views.EquipoJugadorCreate.as_view(), name='equipo-jugador-create'),
 
     # URLs para Jugadores
     path('jugadores/', views.JugadorListView.as_view(), name='jugadores-list'),
