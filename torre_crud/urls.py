@@ -38,5 +38,5 @@ urlpatterns = [
     path('partidos/crear/', views.PartidoCreateView.as_view(), name='partidos-create'),
     path('partidos/<int:pk>/editar/', views.PartidoUpdateView.as_view(), name='partidos-update'),
     path('partidos/<int:pk>/eliminar/', views.PartidoDeleteView.as_view(), name='partidos-delete'),
-    path('partidos/<int:pk>/', views.PartidoDetailView.as_view(), name='partido-detail'),
+    path('partidos/<int:pk>/', views.PartidoDetailView.as_view(), name='partidos-detail'),
 ]
