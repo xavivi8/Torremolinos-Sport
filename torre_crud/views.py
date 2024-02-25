@@ -16,8 +16,8 @@ class Inicio(generic.ListView):
     def get_context_data(self, **kwargs):
         contexto = super().get_context_data(**kwargs)
         contexto['titulo'] = 'Página de inicio'
-        contexto['menu_opciones'] = ['deportes', 'instalaciones', 'equipos', 'jugadores', 'partidos']
-        contexto['imagen_deporte_url'] = 'URL_DE_LA_IMAGEN'
+        """ contexto['menu_opciones'] = ['deportes', 'instalaciones', 'equipos', 'jugadores', 'partidos']
+        contexto['imagen_deporte_url'] = 'URL_DE_LA_IMAGEN' """
         contexto['ultimos_partidos'] = models.Partidos.objects.filter(fecha_hora__lt=datetime.now()).order_by('-fecha_hora')[:5]
         contexto['proximos_partidos'] = models.Partidos.objects.filter(fecha_hora__gte=datetime.now()).order_by('fecha_hora')[:5]
         return contexto
