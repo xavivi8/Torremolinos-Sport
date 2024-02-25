@@ -10,11 +10,11 @@
     <h1>{{ titulo }}</h1>
     
     <!-- Menú -->
-    <nav class="nav">
+    {% comment %} <nav class="nav">
         {% for opcion in menu_opciones %}
             <a class="nav-link" href="{% url 'torre_crud:'|add:opcion|lower|add:'-list' %}">{{ opcion|title }}</a>
         {% endfor %}
-    </nav>
+    </nav> {% endcomment %}
     
     <!-- Imagen de deporte -->
     <img src="{% static 'img/futbolImg.jpg' %}" alt="Imagen de Deporte" class="img-fluid my-4">
