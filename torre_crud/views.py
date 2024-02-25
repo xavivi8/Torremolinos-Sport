@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.views import generic
 from . import models
 from .forms import DeporteForm, InstalacionForm, EquipoForm, JugadorForm, PartidoForm
@@ -134,20 +135,30 @@ class JugadorListView(generic.ListView):
     model = models.Jugadores
     template_name = 'jugadores_list.html'
     context_object_name = 'jugadores'
+    
 
 class JugadorCreateView(generic.CreateView):
     model = models.Jugadores
     form_class = JugadorForm
-    template_name = 'jugadores_create.html'
+    success_url = reverse_lazy('torre_crud:jugadores-list') 
+    template_name = 'jugador_create.html'
 
 class JugadorUpdateView(generic.UpdateView):
     model = models.Jugadores
     form_class = JugadorForm
-    template_name = 'jugadores_update.html'
+    success_url = reverse_lazy('torre_crud:jugadores-list') 
+    template_name = 'jugador_update.html'
 
 class JugadorDetailView(generic.DetailView):
     model = models.Jugadores
     template_name = 'jugador_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        jugador = self.get_object()
+        context['equipo'] = jugador.id_equipo.nombre
+        context['elJugador'] = jugador
+        return context
 
 class JugadorDeleteView(generic.DeleteView):
     model = models.Jugadores
@@ -165,16 +176,19 @@ class PartidoListView(generic.ListView):
 class PartidoCreateView(generic.CreateView):
     model = models.Partidos
     form_class = PartidoForm
+    success_url = reverse_lazy('torre_crud:partidos-list') 
     template_name = 'partido_create.html'
 
 class PartidoUpdateView(generic.UpdateView):
     model = models.Partidos
     form_class = PartidoForm
+    success_url = reverse_lazy('torre_crud:partidos-list') 
     template_name = 'partido_update.html'
 
 class PartidoDetailView(generic.DetailView):
     model = models.Partidos
     template_name = 'partido_detail.html'
+    context_object_name = 'partido'
 
 class PartidoDeleteView(generic.DeleteView):
     model = models.Partidos
