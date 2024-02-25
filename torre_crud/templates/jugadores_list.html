@@ -20,7 +20,7 @@
                 <tr>
                     <td>{{ jugador.nombre }}</td>
                     <td>{{ jugador.apellido1 }} {% if jugador.apellido2 %}{{ jugador.apellido2 }}{% endif %}</td>
-                    <td>{{ jugador.equipo.nombre }}</td> <!-- Asumiendo que tienes un campo "equipo" en tu modelo Jugadores que hace referencia al equipo al que pertenece -->
+                    <td>{{ jugador.id_equipo }}</td> <!-- Asumiendo que tienes un campo "equipo" en tu modelo Jugadores que hace referencia al equipo al que pertenece -->
                     <td>{{ jugador.telefono }}</td>
                     <td>
                         <a href="{% url 'torre_crud:jugador-detail' jugador.pk %}" class="btn btn-info btn-sm">Detalle</a>
