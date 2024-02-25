@@ -29,4 +29,15 @@ class PartidoForm(forms.ModelForm):
             'fecha_hora': forms.DateTimeInput(attrs={'class': 'datetime-input'}),
             'observaciones': forms.Textarea(attrs={'rows': 4}),
         }
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        id_local = cleaned_data.get('id_local')
+        id_visitante = cleaned_data.get('id_visitante')
+
+        # Verificar si el mismo equipo ha sido seleccionado como local y visitante
+        if id_local == id_visitante:
+            raise forms.ValidationError("El mismo equipo no puede ser seleccionado como local y visitante")
+
+        return cleaned_data
 
