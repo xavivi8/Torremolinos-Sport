@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}<title>Detalle del Partido - {{ partido.local.nombre }} vs {{ partido.visitante.nombre }} - {{ block.super }}</title>{% endblock %}
+{% block title %}
+    <title>Detalle del Partido - {{ partido.id_partido }} - {{ block.super }}</title>
+{% endblock %}
 
 {% block cuerpo %}
 <div class="container mt-5">
-    <h1>Detalle del Partido - {{ partido.local.nombre }} vs {{ partido.visitante.nombre }}</h1>
-    <p>Deporte: {{ partido.deporte }}</p>
+    <h1>Detalle del Partido - {{ partido.id_partido }}</h1>
+    <p>Deporte: {{ partido.id_deporte.nombre }}</p>
     <p>Fecha y Hora: {{ partido.fecha_hora }}</p>
-    <p>Instalación: {{ partido.instalacion }}</p>
-    <p>Puntos Local: {{ partido.puntos_local }}</p>
-    <p>Puntos Visitante: {{ partido.puntos_visitante }}</p>
+    <p>Instalación: {% if partido.id_instalacion %}{{ partido.id_instalacion.nombre }}{% else %}No especificada{% endif %}</p>
+    <p>Equipo Local: {{ partido.id_local.nombre }}</p>
+    <p>Equipo Visitante: {{ partido.id_visitante.nombre }}</p>
+    <p>Puntos Equipo Local: {{ partido.puntos_local }}</p>
+    <p>Puntos Equipo Visitante: {{ partido.puntos_visitante }}</p>
     <p>Observaciones: {{ partido.observaciones }}</p>
+    <a href="{% url 'torre_crud:partidos-list' %}" class="btn btn-primary">Volver a la lista de partidos</a>
 </div>
 {% endblock %}
