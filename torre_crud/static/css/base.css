@@ -1,0 +1,43 @@
+body {
+    margin-bottom: 100px auto;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: #343a40; /* Color de fondo del footer */
+    color: #fff; /* Color del texto del footer */
+    text-align: center;
+    padding: 10px 0; /* Añade espacio alrededor del contenido del footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #000; /* Fondo negro para el menú */
+    padding: 10px 0; /* Espacio interno para los botones */
+    margin-bottom: 20px;
+}
+
+.menu a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Estilos para los botones */
+.menu a.btn {
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 0; /* Sin bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Estilos para los botones al pasar el ratón */
+.menu a.btn:hover {
+    opacity: 0.8; /* Reducir opacidad al pasar el ratón */
+}
