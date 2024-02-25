@@ -20,19 +20,25 @@
     <img src="{% static 'img/futbolImg.jpg' %}" alt="Imagen de Deporte" class="img-fluid my-4">
     
     <!-- Listado de últimos partidos jugados -->
-    <h2>Últimos partidos jugados</h2>
-    <ul>
-        {% for partido in ultimos_partidos %}
-            <li>{{ partido.id_deporte }}</li>
-        {% endfor %}
-    </ul>
-    
-    <!-- Listado de próximos partidos por jugar -->
-    <h2>Próximos partidos por jugar</h2>
-    <ul>
-        {% for partido in proximos_partidos %}
-            <li>{{ partido.id_partido }}</li>
-        {% endfor %}
-    </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Últimos partidos jugados</h2>
+            <ul class="list-group">
+                {% for partido in ultimos_partidos %}
+                    <li class="list-group-item">{{ partido.id_local }} VS {{ partido.id_visitante }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <!-- Listado de próximos partidos por jugar -->
+        <div class="col-md-6">
+            <h2>Próximos partidos por jugar</h2>
+            <ul class="list-group">
+                {% for partido in proximos_partidos %}
+                    <li class="list-group-item">{{ partido.id_local }} VS {{ partido.id_visitante }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
