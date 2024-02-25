@@ -7,14 +7,18 @@
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Detalle del Partido - {{ partido.id_partido }}</h1>
-    <p>Deporte: {{ partido.id_deporte.nombre }}</p>
-    <p>Fecha y Hora: {{ partido.fecha_hora }}</p>
-    <p>Instalación: {% if partido.id_instalacion %}{{ partido.id_instalacion.nombre }}{% else %}No especificada{% endif %}</p>
-    <p>Equipo Local: {{ partido.id_local.nombre }}</p>
-    <p>Equipo Visitante: {{ partido.id_visitante.nombre }}</p>
-    <p>Puntos Equipo Local: {{ partido.puntos_local }}</p>
-    <p>Puntos Equipo Visitante: {{ partido.puntos_visitante }}</p>
-    <p>Observaciones: {{ partido.observaciones }}</p>
-    <a href="{% url 'torre_crud:partidos-list' %}" class="btn btn-primary">Volver a la lista de partidos</a>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Deporte: {{ partido.id_deporte.nombre }}</p>
+            <p class="card-text">Fecha y Hora: {{ partido.fecha_hora }}</p>
+            <p class="card-text">Instalación: {% if partido.id_instalacion %}{{ partido.id_instalacion.nombre }}{% else %}No especificada{% endif %}</p>
+            <p class="card-text">Equipo Local: {{ partido.id_local.nombre }}</p>
+            <p class="card-text">Equipo Visitante: {{ partido.id_visitante.nombre }}</p>
+            <p class="card-text">Puntos Equipo Local: {{ partido.puntos_local }}</p>
+            <p class="card-text">Puntos Equipo Visitante: {{ partido.puntos_visitante }}</p>
+            <p class="card-text">Observaciones: {{ partido.observaciones }}</p>
+            <a href="{% url 'torre_crud:partidos-list' %}" class="btn btn-primary">Volver a la lista de partidos</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
