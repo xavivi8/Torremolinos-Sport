@@ -1,20 +1,45 @@
 {% extends 'base.html' %}
 
-{% block title %}<title>Listado de Partidos - {{ block.super }}</title>{% endblock %}
+{% block title %}
+    <title>Listado de Partidos - {{ block.super }}</title>
+{% endblock %}
 
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Listado de Partidos</h1>
-    <ul>
-        {% for partido in partidos %}
-            <li>
-                {{ partido.fecha_hora }} - {{ partido.deporte }} - {{ partido.local }} vs {{ partido.visitante }} - {{ partido.puntos_local }} - {{ partido.puntos_visitante }}
-                <a href="{% url 'partido-detail' partido.pk %}">Detalle</a> |
-                <a href="{% url 'partido-update' partido.pk %}">Modificar</a> |
-                <a href="{% url 'partido-delete' partido.pk %}">Eliminar</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'partido-create' %}">Añadir Partido</a>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Fecha y Hora</th>
+                <th>Deporte</th>
+                <th>Local</th>
+                <th>Visitante</th>
+                <th>Puntos Local</th>
+                <th>Puntos Visitante</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for partido in partidos %}
+                <tr>
+                    <td>{{ partido.fecha_hora }}</td>
+                    <td>{{ partido.id_deporte }}</td>
+                    <td>{{ partido.id_local }}</td>
+                    <td>{{ partido.id_visitante }}</td>
+                    <td>{{ partido.puntos_local }}</td>
+                    <td>{{ partido.puntos_visitante }}</td>
+                    <td>
+                        <a href="{% url 'torre_crud:partidos-detail' partido.id_partido %}" class="btn btn-info btn-sm">Detalle</a>
+                        <a href="{% url 'torre_crud:partidos-update' partido.id_partido %}" class="btn btn-warning btn-sm">Modificar</a>
+                        <a href="{% url 'torre_crud:partidos-delete' partido.id_partido %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                    {% empty %}
+                    <td>No hay datos</td>
+                </tr>
+                
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'torre_crud:partidos-create' %}" class="btn btn-primary">Añadir Partido</a>
 </div>
 {% endblock %}
