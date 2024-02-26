@@ -4,6 +4,10 @@
 <title>Lista de Deportes</title>
 {% endblock %}
 
+{% block btn %}
+<a class="btn btn-primary" href="{% url 'torre_crud:inicio' %}">Inicio</a>
+{% endblock %}
+
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Lista de Deportes</h1>

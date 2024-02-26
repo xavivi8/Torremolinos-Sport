@@ -4,6 +4,10 @@
     <title>Detalle del Jugador - {{ elJugador.nombre }} {{ elJugador.apellido1 }} - {{ block.super }}</title>
 {% endblock %}
 
+{% block btn %}
+<a class="btn btn-primary" href="{% url 'torre_crud:inicio' %}">Inicio</a>
+{% endblock %}
+
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Detalle del Jugador - {{ elJugador.nombre }} {{ elJugador.apellido1 }}</h1>

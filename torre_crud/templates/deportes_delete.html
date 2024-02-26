@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}<title>Eliminar Deporte - {{ block.super }}</title>{% endblock %}
-
+{% block btn %}
+<a class="btn btn-primary" href="{% url 'torre_crud:inicio' %}">Inicio</a>
+{% endblock %}
 {% block cuerpo %}
 <div class="container mt-5">
     <h1>Eliminar Deporte</h1>
