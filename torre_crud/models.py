@@ -70,6 +70,9 @@ class Jugadores(models.Model):
         managed = False
         db_table = 'jugadores'
         unique_together = (('id_equipo', 'dorsal'),)
+        verbose_name = "Jugador"
+        verbose_name_plural = "Jugadores"
+        
 
 
 class Partidos(models.Model):
@@ -86,3 +89,5 @@ class Partidos(models.Model):
     class Meta:
         managed = False
         db_table = 'partidos'
+        verbose_name = "Partido"
+        verbose_name_plural = "Partidos"
