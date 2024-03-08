@@ -12,7 +12,11 @@
     <table class="table">
         <thead>
             <tr>
+                <th>ID</th>
+                <th>Nombre</th>
                 <th>Deporte</th>
+                <th>Equipación Principal</th>
+                <th>Equipación Suplente</th>
                 <th>Contacto</th>
                 <th>Teléfono</th>
                 <th>Email</th>
@@ -20,8 +24,12 @@
         </thead>
         <tbody>
             <tr>
+                <td>{{ equipo.id_equipo }}</td>
+                <td>{{ equipo.nombre }}</td>
                 <td>{{ equipo.id_deporte.nombre }}</td>
                 <td>{{ equipo.contacto }}</td>
+                <td>{{ equipo.equipacion_principal }}</td>
+                <td>{{ equipo.equipacion_suplente }}</td>
                 <td>{{ equipo.telefono }}</td>
                 <td>{{ equipo.email }}</td>
             </tr>
