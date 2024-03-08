@@ -13,15 +13,35 @@
     <h1>Detalle del Jugador - {{ elJugador.nombre }} {{ elJugador.apellido1 }}</h1>
     <div class="card">
         <div class="card-body">
-            <p class="card-text">ID: {{elJugador.id_jugador}}</p>
-            <p class="card-text">Nombre {{elJugador.nombre}}</p>
-            <p class="card-text">Apellidos: {{elJugador.apellido1}} {{elJugador.apellido2}}</p>
-            <p class="card-text">Equipo: {{ equipo }}</p>
-            <p class="card-text">Dorsal: {{elJugador.dorsal}}</p>
-            <p class="card-text">Fecha de Nacimiento: {{ elJugador.fecha_nacimiento }}</p>
-            <p class="card-text">Altura: {{ elJugador.altura }} m</p>
-            <p class="card-text">Peso: {{ elJugador.peso }} kg</p>
-            <p class="card-text">Teléfono: {{ elJugador.telefono }}</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Equipo</th>
+                        <th>Dorsal</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Altura</th>
+                        <th>Peso</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                        <td>{{ elJugador.id_jugador }}</td>
+                        <td>{{ elJugador.nombre }}</td>
+                        <td>{{ elJugador.apellido1 }} {{ elJugador.apellido2 }}</td>
+                        <td>{{ equipo }}</td>
+                        <td>{{ elJugador.dorsal }}</td>
+                        <td>{{ elJugador.fecha_nacimiento }}</td>
+                        <td>{{ elJugador.altura }} m</td> 
+                        <td>{{ elJugador.peso }} kg</td>
+                        <td>{{ elJugador.telefono }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
