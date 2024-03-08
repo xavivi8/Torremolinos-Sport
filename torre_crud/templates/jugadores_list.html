@@ -12,8 +12,7 @@
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
+                <th>Nombre y Apellidos</th>
                 <th>Equipo</th>
                 <th>Teléfono</th>
                 <th>Acciones</th>
@@ -22,8 +21,7 @@
         <tbody>
             {% for jugador in jugadores %}
                 <tr>
-                    <td>{{ jugador.nombre }}</td>
-                    <td>{{ jugador.apellido1 }} {% if jugador.apellido2 %}{{ jugador.apellido2 }}{% endif %}</td>
+                    <td>{{ jugador.nombre }} {{ jugador.apellido1 }} {% if jugador.apellido2 %}{{ jugador.apellido2 }}{% endif %}</td>
                     <td>{{ jugador.id_equipo }}</td> <!-- Asumiendo que tienes un campo "equipo" en tu modelo Jugadores que hace referencia al equipo al que pertenece -->
                     <td>{{ jugador.telefono }}</td>
                     <td>
