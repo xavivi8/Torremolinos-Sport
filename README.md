@@ -1,76 +1,36 @@
-# Torremolinos-Sport
-Torremolinos-Sport
+# Proyecto Torre CRUD
 
-## Apuntes
-### Preparación del entorno
+Este es un proyecto Django para gestionar deportes, equipos, instalaciones, jugadores y partidos. Permite realizar operaciones básicas de creación, lectura, actualización y eliminación (CRUD) sobre estos elementos.
 
-  1. Crear un entorno virtual ``` python –m venv nombre_carpeta```
-  ```bash
-  python –m venv nombre_carpeta
-  ```
+## Estructura del Proyecto
 
-  2. Abrir el proyecto
+El proyecto se organiza de la siguiente manera:
 
-  3. Activar el entorno virtual, para ello nos vamos a la carpeta Scripts y la activamos
-  ```bash
-  .\Scripts\activate
-  ```
+- **torre_crud/**: Directorio principal del proyecto Django.
+  - **static/**: Carpeta que contiene archivos estáticos como hojas de estilo CSS e imágenes.
+    - **css/**: Carpeta que contiene archivos CSS.
+      - **base.css**: Archivo CSS principal con estilos base para la aplicación.
+    - **img/**: Carpeta que contiene imágenes utilizadas en la aplicación.
+  - **templates/**: Carpeta que contiene las plantillas HTML utilizadas en las vistas.
+  - **admin.py**: Archivo donde se registran los modelos para la interfaz de administración de Django.
+  - **apps.py**: Archivo de configuración de la aplicación Django.
+  - **forms.py**: Archivo que define los formularios utilizados en la aplicación.
+  - **models.py**: Archivo que define los modelos de datos utilizados en la aplicación.
+  - **urls.py**: Archivo de configuración de las URLs de la aplicación.
+  - **views.py**: Archivo que contiene las vistas de las páginas web.
 
-  4. Intalar Django ```pip install Django```, para una versión específica ```pip install Django==5.0.1```
-  ```bash
-  pip install Django
-  ```
+### Funcionalidades Principales
 
- 5. Crear proyecto de Django ```django-admin startproject nombre_proyecto```
-  ```bash
-  django-admin startproject nombre_proyecto
-  ``` 
+- **Gestión de Deportes**: Permite agregar, editar y eliminar deportes.
+- **Gestión de Instalaciones**: Permite agregar, editar y eliminar instalaciones deportivas.
+- **Gestión de Equipos**: Permite agregar, editar y eliminar equipos, así como asignar jugadores a equipos.
+- **Gestión de Jugadores**: Permite agregar, editar y eliminar jugadores, así como ver detalles de cada jugador.
+- **Gestión de Partidos**: Permite agregar, editar y eliminar partidos, así como ver detalles de cada partido.
 
-  6. Ejecutar el proyecto Django
-  ```bash
-   python manage.py runserver
-  ``` 
+## Autores
 
-### Crear aplicación 
+- [Francisco Javier Martín-Lunas Escobar](https://github.com/xavivi8) - Desarrollador principal
 
-```bash
-python manage.py startapp nombre
-```
+## Licencia
 
-### Base de datos
-
-  1. Instalar cliente de Mysql
-  ```bash
-  pip install mysqlclient
-  ```
-
-  2. Configurar la cadena de conexión en settings.py
-  ```python
-  DATABASES = {
-    'default': {
-      'ENGINE': 'django.db.backends.mysql',
-      'NAME': 'nombre_de_la_bbdd',
-      'USER': 'usuario',
-      'PASSWORD': 'contraseña',
-      'HOST': 'localhost',
-      'POR T': '3306'
-    }
-  }
-  ```
-
-  3. Resolver los warnings de migración
-  ```bash
-  python manage.py migrate
-  ```
-  4. Makemigrations ```python manage.py makemigrations```
-
-### Crar usuario administrador
-
-  1. Comando ```python manage.py createsuperuser```
-
-
-### Ejercicio 1 - Listado de nombres
-
-  1. Url del ejercicio ```/ejemplo/usuario/```
-  2. Url completa ```http://127.0.0.1:8000/ejemplo/usuario/```
-
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
