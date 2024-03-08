@@ -16,7 +16,7 @@
                 <th>Nombre</th>
                 <th>Dirección</th>
                 <th>Iluminación</th>
-                <th>Cubierta</th>
+                <!-- <th>Cubierta</th> -->
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -27,7 +27,7 @@
                 <td>{{ instalacion.nombre }}</td>
                 <td>{{ instalacion.direccion }}</td>
                 <td>{{ instalacion.iluminacion|yesno:"Sí,No" }}</td>
-                <td>{{ instalacion.cubierta|yesno:"Sí,No" }}</td>
+                <!-- <td>{{ instalacion.cubierta|yesno:"Sí,No" }}</td> -->
                 <td>
                     <!-- Botón para editar la instalación -->
                     <a href="{% url 'torre_crud:instalaciones-update' instalacion.id_instalacion %}" class="btn btn-primary">Editar</a>
