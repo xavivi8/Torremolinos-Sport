@@ -1,3 +1,6 @@
+CREATE DATABASE torremolinos_sport_bd;
+USE torremolinos_sport_bd;
+
 create table if not exists deportes (
 	id_deporte int primary key auto_increment,
     nombre varchar(20) not null unique
